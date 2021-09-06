@@ -14,6 +14,7 @@ pip install -r requirements.txt
 '''
 
 download the data set and saved to data_given folder. Google drive link.
+https://drive.google.com/drive/folders/1xw0XX-WK74uxtFFLySbtnX-ODdmdK5Ec
 
 git init
 
