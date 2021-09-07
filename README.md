@@ -29,3 +29,9 @@ git commit -m "first commit"
 '''
 git add . && git commit -m "update Readme.md" this is for commiting all the changes in this file at once
 '''
+
+git remote add origin http://github.com/shivanshjayara/sample-dvc_demo.git
+
+git branch -M main
+
+git push origin main
