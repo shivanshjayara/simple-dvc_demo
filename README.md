@@ -38,7 +38,8 @@ git init
 
 '''bash
     git add . && git commit -m "update Readme.md" this is for commiting all the changes in this file at once
-    (afetr doing any updation further, please push it to the origin like: git push origin main)
+    (afetr doing any updation further, please push it to the origin like: git push origin main.
+    If not then do this: git push origin main  --force  )
 '''
 
 '''bash
