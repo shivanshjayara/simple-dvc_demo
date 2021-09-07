@@ -16,7 +16,7 @@ def read_params(config_path):      # func for reading the configuration  file i.
 def get_data(config_path):   # fun for getting the data  and passing the configuration path and reading those config
     config = read_params(config_path)
     print(config)
-    data_path = config['data_source']['s3_source']
+    data_path = config["data_source"]["s3_source"]
     df = pd.read_csv(data_path, encoding = 'utf-8')
     print(df.head())
 
