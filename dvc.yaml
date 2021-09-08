@@ -1,6 +1,6 @@
 stages:
   load data:
-    cmd: python src/load_data.py --config = params.yaml
+    cmd: python src/load_data.py --config=params.yaml        #there should be no space in between equal tp sign
     deps:
     - src/get_data.py
     - src/load_data.py

@@ -20,6 +20,8 @@ def get_data(config_path):   # fun for getting the data  and passing the configu
     df = pd.read_csv(data_path, encoding = 'utf-8')
     return df
 
+# extra comment
+
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--config",default="params.yaml")  #Default coz,so that if we forget the config, it will automatically take it from params.yaml
