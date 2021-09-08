@@ -62,8 +62,13 @@ If not then do this: git push origin main  --force  )
 '''
 
 '''bash
-git push origin main
+    git push origin main
 '''
+
+''' bash
+    create stage-1: load_data
+'''
+
 
 '''bash
 dvc repro. This will create dvc.lock file which will be having all the dependencies which we have tracked in a code.
@@ -73,3 +78,32 @@ It takes the stages from the dvc.lock file where all the dependencies are stored
 
 In simple terms, dvc repro will go to the oarams.yaml file and check the stages. Whatever the changes has occurred in any of the dependencies, it will reproduce those into entire process.  
 ''' 
+
+'''bash
+created split.py file
+'''
+
+''' bash
+    create stage-2: split_data
+'''
+
+
+'''bash
+update the dvc.yaml file with all the depedencies and outputs location
+'''
+
+''' bash
+run command dvc.repro
+'''
+
+''' bash
+    To track the changes with git, run:
+
+        git add dvc.lock 'data\processed\.gitignore'
+    Use `dvc push` to send your updates to remote storage.
+'''
+
+''' bash
+whene ever we run dvc.repro command, it will go and check dvc.yaml file and it will the stages mention in that file like what command are in the load_data and split_data ike dependencies and output location ,etc.
+It will always run if there is any change in the respective dependencies else it will skip this step.
+'''
