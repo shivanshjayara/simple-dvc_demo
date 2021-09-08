@@ -9,16 +9,17 @@ stages:
     - data/raw/winequality.csv
 
 
+    
 ## This for creating stages for the the pipe line
 ## stage 1 and it has run after doing 'dvc repro' command. This will create the dvc.lock file. 
 ## All the depedencies that were mentioned, it is started tracking those as a code in this lock file.
 ## What ever changes i have done that will be tracked.
 
-split_data:
-  cmd: python src/split_data.py --config=params.yaml
-  deps:
-  - src/split_data.py
-  - data/raw/winequality.csv
-  outs:
-  - data/processed/train_winequality.csv
-  - data/processed/test_winequality.csv
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - src/split_data.py
+    - data/raw/winequality.csv
+    outs:
+    - data/processed/train_winequality.csv
+    - data/processed/test_winequality.csv
