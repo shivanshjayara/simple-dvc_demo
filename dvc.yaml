@@ -8,8 +8,6 @@ stages:
     outs:
     - data/raw/winequality.csv
 
-
-    
 ## This for creating stages for the the pipe line
 ## stage 1 and it has run after doing 'dvc repro' command. This will create the dvc.lock file. 
 ## All the depedencies that were mentioned, it is started tracking those as a code in this lock file.
@@ -23,3 +21,15 @@ stages:
     outs:
     - data/processed/train_winequality.csv
     - data/processed/test_winequality.csv
+
+  train_and_evaluate:
+    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps: 
+    - data/processed/train_winequality.csv
+    - data/processed/test_winequality.csv
+    - src/train_and_evaluate.py
+    params:
+    - estimators.ElasticNet.params.aplha  
+    - estimators.ElasticNet.params.l1_ratio
+    outs:
+    - saved_models/model.joblib
