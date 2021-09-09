@@ -75,13 +75,14 @@ dvc repro. This will create dvc.lock file which will be having all the dependenc
 No wif we ru it again, it shows that nothing has changes so it is skipping this step.
 Now to se ehwo it affects the changes, lets comment out some where. Then if we run dvc repro command then it will sends those changes and it will run the same command. In this way this works.
 It takes the stages from the dvc.lock file where all the dependencies are stored. It contains the size of the data or whatever things are stored there and it will track the size. So bascially if there is any changes occur in it it will change the md file and it will reproduce that change to the entrie process. 
-
 In simple terms, dvc repro will go to the oarams.yaml file and check the stages. Whatever the changes has occurred in any of the dependencies, it will reproduce those into entire process.  
 ''' 
+
 
 '''bash
 created split.py file
 '''
+
 
 ''' bash
     create stage-2: split_data
@@ -107,3 +108,39 @@ run command dvc.repro
 whene ever we run dvc.repro command, it will go and check dvc.yaml file and it will the stages mention in that file like what command are in the load_data and split_data ike dependencies and output location ,etc.
 It will always run if there is any change in the respective dependencies else it will skip this step.
 '''
+
+
+''' bash
+    train_and_evaluate.py file created
+'''
+
+
+''' bash
+    updated the dvc.yaml file with stage 3 i.e. train_and_evaluate
+'''
+
+
+''' bash
+    run dvc repro. New stage will added into dvc.lock file.
+'''
+
+
+''' bash
+    create another folder named report where all the parameters and score of metrices will be saved in the form of json structure
+'''
+
+
+''' bash
+    now nothing we have to do by our own. All this saving of parameters and score will be taken care and done by dvc.yaml file. Only thing which we have to do is, we need to add extra or call the metrics in dvc.yaml file i.e. we have to update one more parametrs in dvc.yaml file which is metrics section.
+    We will also do some addition in train_and_evaluate.py file. We just need to add those metrics score file which we will be creating in report folder
+'''
+
+''' bash
+    for above we have to specify the path for above files in params.yaml file also.
+'''
+
+''' bash
+    dvc metrics show: This command will show the value sof all the mentioned metrics
+    dvc metrics diff: This command wil show the old and new values
+'''
+

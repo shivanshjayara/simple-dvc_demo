@@ -53,40 +53,34 @@ def train_and_evaluate(config_path):
     predicted_qualities = lr.predict(test_x)
 
     (rmse, mae, r2) = eval_metric(test_y, predicted_qualities)
-    print(rmse, mae, r2)
 
-#     print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
-#     print("  RMSE: %s" % rmse)
-#     print("  MAE: %s" % mae)
-#     print("  R2: %s" % r2)
+    print("Elastic model (alpha=%f, l1_ratio=%f):"% (alpha, l1_ratio))
+    print(" RMSE: %s" % rmse)
+    print(" MAE: %s" % mae)
+    print(" R2: %s" % r2)
 
-# #####################################################
-#     scores_file = config["reports"]["scores"]
-#     params_file = config["reports"]["params"]
-
-#     with open(scores_file, "w") as f:
-#         scores = {
-#             "rmse": rmse,
-#             "mae": mae,
-#             "r2": r2
-#         }
-#         json.dump(scores, f, indent=4)
-
-#     with open(params_file, "w") as f:
-#         params = {
-#             "alpha": alpha,
-#             "l1_ratio": l1_ratio,
-#         }
-#         json.dump(params, f, indent=4)
-# #####################################################
+    scores_file = config['reports']['scores']
+    params_file = config['reports']['params']
 
 
-#     os.makedirs(model_dir, exist_ok=True)
-#     model_path = os.path.join(model_dir, "model.joblib")
+    with open(scores_file, 'w') as f:  #these will be coming from params.yaml file
+        scores = {
+            'rmse': rmse,
+            'mae': mae,
+            'r2': r2
+        }
+        json.dump(scores, f, indent = 4)
 
-#     joblib.dump(lr, model_path)
+    with open(params_file, 'w') as f:  #these will be coming from params.yaml file
+        params= {
+            'alpha': alpha,
+            'l1_ratio': l1_ratio,
+        }
+        json.dump(params, f, indent = 4)
 
-
+    os.makedirs(model_dir, exist_ok = True)
+    model_path = os.path.join(model_dir, "model.joblib")
+    joblib.dump(lr, model_path)
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
