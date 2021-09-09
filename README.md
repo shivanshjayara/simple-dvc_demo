@@ -135,21 +135,39 @@ It will always run if there is any change in the respective dependencies else it
     We will also do some addition in train_and_evaluate.py file. We just need to add those metrics score file which we will be creating in report folder
 '''
 
+
 ''' bash
     for above we have to specify the path for above files in params.yaml file also.
 '''
+
 
 ''' bash
     dvc metrics show: This command will show the value sof all the mentioned metrics
     dvc metrics diff: This command wil show the old and new values and the changed in the values
 '''
 
+
 ''' bash
     just for experiment purpose, we can change the paramaters values of alpha and l1_ration in params.yaml file.
     Then run the command "dvc metrics diff" to check the difference/change. This will show the difference between the previous values and current values
 '''
 
+
 ''' bash
-    Later on if again we run dvc metrics diff: Then it will not show any changes.
+    Later on if again we run dvc metrics diff: Then it will not show any changes because now there is no changes done.
 '''
+
+''' BASIC CODING IS DONE. NOW TESTING PART WILL START.
+    INSTALL pytest, tox
+    
+    tox: creates a virtual env. We can specifi for all version of python like py27 or py36
+    deps = pytest
+    commands = [Note: we can un any commands here not only tests]
+    pytest
+
+Note 2: To run above we need to install tox.in file in our root directory. 
+'''
+
+
+
 
