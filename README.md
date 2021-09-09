@@ -141,6 +141,15 @@ It will always run if there is any change in the respective dependencies else it
 
 ''' bash
     dvc metrics show: This command will show the value sof all the mentioned metrics
-    dvc metrics diff: This command wil show the old and new values
+    dvc metrics diff: This command wil show the old and new values and the changed in the values
+'''
+
+''' bash
+    just for experiment purpose, we can change the paramaters values of alpha and l1_ration in params.yaml file.
+    Then run the command "dvc metrics diff" to check the difference/change. This will show the difference between the previous values and current values
+'''
+
+''' bash
+    Later on if again we run dvc metrics diff: Then it will not show any changes.
 '''
 
