@@ -10,7 +10,7 @@ webapp_root = "webapp"
 static_dir = os.path.join(webapp_root, "static")
 template_dir = os.path.join(webapp_root, "templates")
 
-app = Flask(__name__, static_folder = static_dir, template_folder = template_dir)
+app = Flask(__name__, static_folder=static_dir, template_folder=template_dir)
 
 def read_params(config_path):
     with open(config_path) as yaml_file:
@@ -23,10 +23,18 @@ def predict(data):
     model = joblib.load(model_dir_path)
     prediction = model.predict(data)
     print(prediction)
-    return prediction
+    return prediction[0]
 
 def api_response(request):
-    pass
+    try:
+        data=np.array([list(request.json.values())])
+        response = predict(data)
+        response = {"response":response}
+        return response
+    except Exception as e:
+        print(e)
+        error = {'error':'Something wnet wrong!! Try again...'}
+        return error
 
 @app.route("/", methods=["GET","POST"])
 def index():
@@ -34,7 +42,7 @@ def index():
         try:
             if request.form:  # if the request if coming from thw web application. these values are in the form of dictionary and we will take values only
                 data = dict(request.form).values()
-                data = list(map(float,data))  #mapping all the values into float form
+                data = [list(map(float, data))]  #mapping all the values into float form
                 response = predict(data)
                 return render_template('index.html', response = response)
             
