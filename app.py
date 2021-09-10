@@ -19,7 +19,7 @@ def read_params(config_path):
  
 def predict(data):
     config = read_params(params_path)
-    model_dir_path= config['webapp_model_dir']
+    model_dir_path= config["webapp_model_dir"]
     model = joblib.load(model_dir_path)
     prediction = model.predict(data)
     print(prediction)
@@ -28,13 +28,13 @@ def predict(data):
 def api_response(request):
     pass
 
-@app.route('/', methods=['GET','POST'])
+@app.route("/", methods=["GET","POST"])
 def index():
-    if request.method == 'POST':
+    if request.method == "POST":
         try:
             if request.form:  # if the request if coming from thw web application. these values are in the form of dictionary and we will take values only
                 data = dict(request.form).values()
-                data = [list(map(float,data))]  #mapping all the values into float form
+                data = list(map(float,data))  #mapping all the values into float form
                 response = predict(data)
                 return render_template('index.html', response = response)
             
