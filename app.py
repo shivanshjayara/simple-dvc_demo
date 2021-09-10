@@ -28,10 +28,6 @@ def predict(data):
 def api_response(request):
     pass
 
-
-
-
-
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
@@ -46,12 +42,10 @@ def index():
                 response = api_response(request)
                 return jsonify(response)
 
-
         except Exception as e:
             print(e)
             error = {'error':'Something wnet wrong!! Try again...'}
             return render_template('404.html', error = error)   # in order to put our own error message we use 404.html
-        pass
     else:
         return render_template('index.html')
 
