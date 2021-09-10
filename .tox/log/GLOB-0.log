@@ -1,6 +1,6 @@
 action: GLOB, msg: packaging
 cwd: C:\Users\Shivansh Jayara\iNeuron\FSDS Course\ML Projects\MLOPPS\simple_app
-cmd: 'C:\Users\Shivansh Jayara\anaconda3\envs\wineq\python.exe' setup.py sdist --formats=zip --dist-dir 'C:\Users\Shivansh Jayara\iNeuron\FSDS Course\ML Projects\MLOPPS\simple_app\.tox\dist'
+cmd: 'C:\Users\Shivansh Jayara\anaconda3\envs\wineq\python.exe' setup.py sdist --formats=zip --dist-dir '.tox\dist'
 running sdist
 running egg_info
 writing src.egg-info\PKG-INFO
@@ -25,8 +25,7 @@ copying src.egg-info\SOURCES.txt -> src-0.0.1\src.egg-info
 copying src.egg-info\dependency_links.txt -> src-0.0.1\src.egg-info
 copying src.egg-info\top_level.txt -> src-0.0.1\src.egg-info
 Writing src-0.0.1\setup.cfg
-creating C:\Users\Shivansh Jayara\iNeuron\FSDS Course\ML Projects\MLOPPS\simple_app\.tox\dist
-creating 'C:\Users\Shivansh Jayara\iNeuron\FSDS Course\ML Projects\MLOPPS\simple_app\.tox\dist\src-0.0.1.zip' and adding 'src-0.0.1' to it
+creating '.tox\dist\src-0.0.1.zip' and adding 'src-0.0.1' to it
 adding 'src-0.0.1\PKG-INFO'
 adding 'src-0.0.1\README.md'
 adding 'src-0.0.1\setup.cfg'
