@@ -164,8 +164,39 @@ It will always run if there is any change in the respective dependencies else it
     deps = pytest
     commands = [Note: we can un any commands here not only tests]
     pytest
+Note 2: To run above we need to install 'tox.in' file in our root directory. 
+'''
 
-Note 2: To run above we need to install tox.in file in our root directory. 
+''' bash
+    created tox.ini file
+'''
+
+''' bash
+    creating test case folder. In that folder create files:
+    1) test_config.py: Whenever we want to call any test method,  so that pytest can identify whether these caese are present or not, we need to always define a function starting with name 'test_xyz'.
+    We will also put assert statement. It will pass the pytest file when it will run only if assertion is true. 
+    Same commands we can run from 'tox.ini' file also. Just type 'tox'. After this a temperory enviornment gets created in .tox folder.
+    
+    Suppose we have updated our requirement file, then we have to use: tox -r, it means we have to reload this enviornment. 
+    2) confest.py
+    3) _ _init_ _.py
+'''
+
+''' bash
+    pip install -e .
+'''
+
+''' bash
+    pip freeze to check what are installed including src file
+''' 
+
+''' bash
+    run pytest-v.
+'''
+
+''' bash
+    python setup.py sdist bdist_wheel: It will create a build and distribution. We can share this to our friends so taht they can also install them into their system.
+    For now we can delete it as build and dist is not required.
 '''
 
 
